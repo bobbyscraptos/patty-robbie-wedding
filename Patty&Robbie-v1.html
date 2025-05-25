@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Patty and Robbie</title>
+  <style>
+    /* Galano Grotesque for headers and subheads */
+    @font-face {
+      font-family: 'GalanoGrotesque';
+      src: url('fonts/GalanoGrotesqueDEMO-Bold.otf') format('opentype');
+      font-weight: 900;
+      font-style: normal;
+    }
+    /* HK Requisite for body copy */
+    @font-face {
+      font-family: 'HKRequisite';
+      src: url('fonts/HKRequisite-Medium.otf') format('opentype');
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    :root {
+      --accent-color: #a67c52;
+      --bg-color: #f5f0e0;
+      --text-color: #333333;
+      --body-font: 'HKRequisite', sans-serif;
+      --title-font: 'GalanoGrotesque', sans-serif;
+      --header-scale: 1.15;
+      --hover-color: olive;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: var(--body-font);
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      text-align: center;
+    }
+    header,
+    section,
+    footer {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+    header {
+      padding-top: 4rem;
+    }
+    h1 {
+      font-family: var(--title-font);
+      font-weight: 900;
+      text-transform: uppercase;
+      font-size: 6rem;
+      line-height: 0.9;
+      margin: 0;
+      margin-bottom: 0.5rem;
+      letter-spacing: normal;
+      display: inline-block;
+      transform: scaleX(var(--header-scale));
+      transform-origin: center;
+    }
+    .subheading {
+      font-family: var(--title-font);
+      color: var(--accent-color);
+      font-size: 1.125rem;
+      margin-bottom: 1.5rem;
+    }
+    /* Hide the 'Our Story' section for now */
+    #our-story {
+      display: none;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      padding: 0;
+    }
+    nav a {
+      font-family: var(--title-font);
+      text-decoration: none;
+      color: var(--text-color);
+      font-weight: 900;
+    }
+    nav a:hover {
+      color: var(--hover-color);
+    }
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background: var(--accent-color);
+      color: #ffffff;
+      border-radius: 5px;
+      text-decoration: none;
+      font-family: var(--title-font);
+      font-weight: 900;
+      margin-top: 0.5rem;
+    }
+    .btn:hover {
+      color: var(--hover-color);
+    }
+    .section-title {
+      font-family: var(--title-font);
+      font-size: 2rem;
+      color: var(--accent-color);
+      margin-bottom: 1rem;
+    }
+    section a:hover {
+      color: var(--hover-color);
+    }
+    @media (max-width: 600px) {
+      nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      h1 {
+        font-size: 2.5rem;
+        transform: scaleX(1);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Patty<br>And<br>Robbie</h1>
+    <p class="subheading">9/12/2025 • NYC</p>
+    <nav>
+      <ul>
+        <li><a href="#our-story">Our Story</a></li>
+        <li><a href="#details">Details</a></li>
+        <li><a href="#registry">Registry</a></li>
+        <li><a href="#travel">Travel</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="our-story">
+    <h2 class="section-title">Our Story</h2>
+    <p>How we met, our journey together, and what makes our bond special.</p>
+  </section>
+
+  <section id="details">
+    <h2 class="section-title">Event Details</h2>
+    <p><b>NYC Courthouse</b> <br> 11:00 AM</p>
+    <p><b>Ceremony</b> <br> 11:30 AM at Park TBD</p>
+    <p><b>Walk the Highline</b> <br> 12:00 PM at 828 Washington St</p>
+    <p><b>Reception</b> <br> 1:00 - 4:00 PM at Ci Siamo</p>
+    <p><b>After Party</b> <br> 7:00 PM at Cherry On Top</p>
+  </section>
+
+  <section id="registry">
+    <h2 class="section-title">Registry</h2>
+    <p>Find our registry at:</p>
+    <p><a href="https://example.com" target="_blank">Our Registry</a></p>
+  </section>
+
+  <section id="travel">
+    <h2 class="section-title">Travel &amp; Accommodations</h2>
+    <p>Some nearby hotels, transportation tips, and parking information.</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Patty &amp; Robbie</p>
+  </footer>
+</body>
+</html>

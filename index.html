@@ -71,13 +71,23 @@
       transform-origin: center;
       transition: all 0.3s ease;
     }
+    /* Remove breaks when scrolled */
     header.scrolled h1 {
       font-size: 2rem;
       transform: scaleX(1);
       white-space: nowrap;
       margin: 0;
     }
-    .subheading { display: none; }
+    header.scrolled h1 br { display: none; }
+    .subheading {
+      font-family: var(--title-font);
+      color: var(--accent-color);
+      font-size: 1.125rem;
+      margin: 0 0 1rem;
+      display: block;
+      transition: opacity 0.3s;
+    }
+    header.scrolled .subheading { display: none; }
     nav ul {
       list-style: none;
       display: flex;
@@ -126,7 +136,7 @@
       background-position: center center;
       background-repeat: no-repeat;
       background-size: cover;
-      margin-top: calc(4rem + 1rem + 1rem); /* offset for header height */
+      margin-top: calc(4rem + 1rem + 1rem);
       transition: background-position 0.1s;
     }
     section, footer { padding-top: 2rem; }
@@ -140,8 +150,8 @@
 </head>
 <body>
   <header>
-    <h1>Patty&nbsp;And&nbsp;Robbie</h1>
-    <!-- Subheading hidden in fixed nav -->
+    <h1>Patty<br>And<br>Robbie</h1>
+    <p class="subheading">9/12/2025 • NYC</p>
     <nav>
       <ul>
         <li><a href="#our-story">Our Story</a></li>
@@ -185,9 +195,8 @@
     window.addEventListener('scroll', () => {
       const offset = window.pageYOffset;
       // Parallax background moves relative to scroll
-      const yPos = 50 + offset * 0.03; // start at 50% center
+      const yPos = 50 + offset * 0.03;
       parallax.style.backgroundPosition = `center ${yPos}%`;
-
       // Toggle header shrink
       if (offset > 100) header.classList.add('scrolled');
       else header.classList.remove('scrolled');

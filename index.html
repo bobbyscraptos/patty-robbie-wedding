@@ -30,7 +30,7 @@
       --hover-color: olive;
     }
 
-    * {
+    *, *::before, *::after {
       box-sizing: border-box;
     }
     body {
@@ -50,7 +50,7 @@
       padding: 2rem 1rem;
     }
     header {
-      padding-top: 4rem;
+      padding: 4rem 1rem 1rem;
     }
     h1 {
       font-family: var(--title-font);
@@ -68,17 +68,16 @@
       font-family: var(--title-font);
       color: var(--accent-color);
       font-size: 1.125rem;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
     }
     /* Parallax section styling */
     .parallax {
       background-image: url('images/parallax-photo.jpg'); /* Replace with your photo path */
-      min-height: 400px;
-      background-attachment: fixed;
-      background-position: center;
+      min-height: 500px;
+      background-position: center 0;
       background-repeat: no-repeat;
       background-size: cover;
-      margin: 2rem 0;
+      margin: 0;
     }
     /* Hide the 'Our Story' section for now */
     #our-story {
@@ -88,14 +87,17 @@
       list-style: none;
       display: flex;
       justify-content: center;
-      gap: 1rem;
+      gap: 2rem;
       padding: 0;
+      margin-bottom: 0.5rem;
     }
     nav a {
       font-family: var(--title-font);
       text-decoration: none;
       color: var(--text-color);
       font-weight: 900;
+      font-size: 1.25rem;
+      padding-bottom: 0.25rem;
     }
     nav a:hover {
       color: var(--hover-color);
@@ -110,6 +112,7 @@
       font-family: var(--title-font);
       font-weight: 900;
       margin-top: 0.5rem;
+      font-size: 1.125rem;
     }
     .btn:hover {
       color: var(--hover-color);
@@ -126,14 +129,14 @@
     @media (max-width: 600px) {
       nav ul {
         flex-direction: column;
-        gap: 0.5rem;
+        gap: 1rem;
       }
       h1 {
         font-size: 2.5rem;
         transform: scaleX(1);
       }
       .parallax {
-        background-attachment: scroll; /* Disable parallax on mobile */
+        min-height: 250px;
       }
     }
   </style>
@@ -183,5 +186,14 @@
   <footer>
     <p>&copy; 2025 Patty &amp; Robbie</p>
   </footer>
+
+  <script>
+    // Dynamic parallax scrolling effect
+    window.addEventListener('scroll', function() {
+      const parallax = document.querySelector('.parallax');
+      const offset = window.pageYOffset;
+      parallax.style.backgroundPositionY = `${offset * 0.5}px`;
+    });
+  </script>
 </body>
 </html>

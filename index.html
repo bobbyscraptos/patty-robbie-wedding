@@ -5,10 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Patty and Robbie</title>
   <style>
-    /* fonts… */
-    @font-face { /*…*/ }
-    @font-face { /*…*/ }
-    a { color: #333333; }
+    /* Galano Grotesque for headers and subheads */
+    @font-face {
+      font-family: 'GalanoGrotesque';
+      src: url('fonts/GalanoGrotesqueDEMO-Bold.otf') format('opentype');
+      font-weight: 900;
+      font-style: normal;
+    }
+    /* HK Requisite for body copy */
+    @font-face {
+      font-family: 'HKRequisite';
+      src: url('fonts/HKRequisite-Medium.otf') format('opentype');
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    a {
+    color: #333333; /* Sets all links to body color */
+    }
+    
     :root {
       --accent-color: #a67c52;
       --bg-color: #f5f0e0;
@@ -19,15 +34,29 @@
       --hover-color: olive;
       --scroll-threshold: 100px;
     }
-    *, *::before, *::after { box-sizing: border-box; }
-    body { margin:0; padding:0; font-family:var(--body-font); background:var(--bg-color); color:var(--text-color); line-height:1.6; text-align:center; }
 
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: var(--body-font);
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      text-align: center;
+    }
     header {
-      position: fixed; top:0; left:0; right:0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
       background: var(--bg-color);
       padding: 4rem 1rem 1rem;
-      display: flex; flex-direction: column; align-items: center;
-      transition: all 0.3s ease; z-index:1000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: all 0.3s ease;
+      z-index: 1000;
     }
     header.scrolled {
       padding: 0.5rem 1rem;
@@ -46,13 +75,14 @@
       transform-origin: center;
       transition: all 0.3s ease;
     }
+    /* Remove breaks when scrolled */
     header.scrolled h1 {
       font-size: 2rem;
       transform: scaleX(1);
       white-space: nowrap;
-      margin:0;
+      margin: 0;
     }
-    header.scrolled h1 br { display:none; }
+    header.scrolled h1 br { display: none; }
     .subheading {
       font-family: var(--title-font);
       color: var(--accent-color);
@@ -61,8 +91,7 @@
       display: block;
       transition: opacity 0.3s;
     }
-    header.scrolled .subheading { display:none; }
-
+    header.scrolled .subheading { display: none; }
     nav ul {
       list-style: none;
       display: flex;
@@ -72,8 +101,9 @@
       margin: 0.5rem 0;
       transition: margin 0.3s ease;
     }
-    header.scrolled nav ul { margin:0; }
-
+    header.scrolled nav ul {
+      margin: 0;
+    }
     nav a {
       font-family: var(--title-font);
       text-decoration: none;
@@ -84,33 +114,43 @@
       transition: color 0.3s;
     }
     nav a:hover { color: var(--hover-color); }
-
-    .btn { /*…*/ }
-    .section-title { /*…*/ }
-    .parallax { /*…*/ }
-
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background: var(--accent-color);
+      color: #ffffff;
+      border-radius: 5px;
+      text-decoration: none;
+      font-family: var(--title-font);
+      font-weight: 900;
+      margin-top: 0.5rem;
+      font-size: 1.125rem;
+      transition: color 0.3s;
+    }
+    .btn:hover { color: var(--hover-color); }
+    .section-title {
+      font-family: var(--title-font);
+      font-size: 2rem;
+      color: var(--accent-color);
+      margin-bottom: 1rem;
+    }
+    .parallax {
+      background-image: url('images/parallax-photo.jpg');
+      /* Increased height so bottom extends beyond screen */
+      min-height: 120vh;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      margin-top: calc(4rem + 1rem + 1rem);
+      transition: background-position 0.1s;
+    }
     section, footer { padding-top: 2rem; }
-    #our-story { display:none; }
-
+    #our-story { display: none; }
     @media (max-width: 600px) {
       nav ul { flex-direction: column; gap: 1rem; }
       h1 { font-size: 2.5rem; transform: scaleX(1); }
+      /* Keep mobile smaller but still enough viewport */
       .parallax { min-height: 80vh; }
-    }
-
-    /* Hamburger */
-    .menu-toggle {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 2rem;
-      cursor: pointer;
-      margin-bottom: 0.5rem;
-    }
-    @media (max-width: 600px) {
-      .menu-toggle { display: block; }
-      nav ul { display: none; }
-      nav ul.open { display: flex; }
     }
   </style>
 </head>
@@ -118,7 +158,6 @@
   <header>
     <h1>Patty And Robbie</h1>
     <p class="subheading">9/12/2025 • NYC</p>
-    <button class="menu-toggle" aria-label="Toggle Menu">&#9776;</button>
     <nav>
       <ul>
         <li><a href="#details">Details</a></li>
@@ -128,42 +167,46 @@
     </nav>
   </header>
 
+  <!-- Parallax Image Section -->
   <div class="parallax"></div>
 
   <section id="details">
     <h2 class="section-title">Details</h2>
-    <!-- … -->
+    <p><b>Ceremony</b> <br> 12:00 PM at the High Line - Moynihan Connector <br><i>Please enter at West 31st St. between 9th and 10th Aves.</i></p>
+    <p><b>Reception</b> <br> 12:30 PM at Ci Siamo <br><i>Lunch is a short walk from the ceremony.</i></p>
+    <p><b>After Party</b> <br> 5:00 PM at TBD Bar <br><i>Transportation will be provided.</i></p>
   </section>
 
-  <section id="saturday-afternoon">
-    <h2 class="section-title">Saturday Afternoon</h2>
-    <!-- … -->
+   <section id="details">
+    <h2 class="section-title">Saturday Afternoon</h2> <br>  2:00 PM at TBD Bar<br><i>Details coming soon.</i>
   </section>
 
-  <!-- … other sections … -->
+  <section id="travel">
+    <h2 class="section-title">Accommodations</h2>
+    <p>We've reserved a room block at the <a href="https://www.marriott.com/event-reservations/reservation-link.mi?id=1751300114628&key=GRP&app=resvlink" target="_blank">Moxy Times Square.</a> <br><i> It's a 12-minute walk or 5-minute car from both the ceremony and lunch.</i></p>
+    <p>and <a href="https://book.arlohotels.com/?adult=1&arrive=2025-07-21&chain=19470&child=0&currency=USD&depart=2025-07-22&hotel=31688&level=hotel&locale=en-US&productcurrency=USD&promo=CELEBRATE&rooms=1" target="_blank">Arlo Midtown.</a> <br><i>an 8-minute walk or 4-minute car.</i></p>
+  </section>
+
+ <section id="lookbook">
+    <h2 class="section-title">What to Wear</h2>
+    <p>Formal attire with a splash of color. <br><i>We put together <a href="https://docs.google.com/presentation/d/e/2PACX-1vR_2l0W4kxRDNAruwK-CEAi_3i98mfpvvc7_PPh9qZypDb_bJhdDctvIq25MBfaZOtls6HWbvSVsIfU/pub?start=false&loop=false&delayms=3000&slide=id.g35002449a79_1_0" target="_blank">this lookbook for inspiration.</a></i>  
+  </section>
 
   <footer>
     <p>&copy; 2025 Patty &amp; Robbie</p>
   </footer>
 
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const header = document.querySelector('header');
-      const parallax = document.querySelector('.parallax');
-      const menuToggle = document.querySelector('.menu-toggle');
-      const navList = document.querySelector('nav ul');
-
-      window.addEventListener('scroll', () => {
-        const offset = window.pageYOffset;
-        const yPos = 50 + offset * 0.03;
-        parallax.style.backgroundPosition = `center ${yPos}%`;
-        if (offset > 100) header.classList.add('scrolled');
-        else header.classList.remove('scrolled');
-      });
-
-      menuToggle.addEventListener('click', () => {
-        navList.classList.toggle('open');
-      });
+    const header = document.querySelector('header');
+    const parallax = document.querySelector('.parallax');
+    window.addEventListener('scroll', () => {
+      const offset = window.pageYOffset;
+      // Parallax background moves relative to scroll
+      const yPos = 50 + offset * 0.03;
+      parallax.style.backgroundPosition = `center ${yPos}%`;
+      // Toggle header shrink
+      if (offset > 100) header.classList.add('scrolled');
+      else header.classList.remove('scrolled');
     });
   </script>
 </body>

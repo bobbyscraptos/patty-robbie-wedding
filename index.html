@@ -45,6 +45,7 @@
       line-height: 1.6;
       text-align: center;
     }
+
     header {
       position: fixed;
       top: 0;
@@ -152,12 +153,38 @@
       /* Keep mobile smaller but still enough viewport */
       .parallax { min-height: 80vh; }
     }
+    .menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  margin-bottom: 0.5rem;
+}
+
+@media (max-width: 600px) {
+  .menu-toggle {
+    display: block;
+  }
+  
+  nav ul {
+    display: none;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  nav ul.open {
+    display: flex;
+  }
+}
+
   </style>
 </head>
 <body>
   <header>
     <h1>Patty And Robbie</h1>
     <p class="subheading">9/12/2025 • NYC</p>
+    <button class="menu-toggle" aria-label="Toggle Menu">&#9776;</button>
     <nav>
       <ul>
         <li><a href="#details">Details</a></li>
@@ -197,6 +224,25 @@
   </footer>
 
   <script>
+const header = document.querySelector('header');
+const parallax = document.querySelector('.parallax');
+const menuToggle = document.querySelector('.menu-toggle');
+const navList = document.querySelector('nav ul');
+
+window.addEventListener('scroll', () => {
+  const offset = window.pageYOffset;
+  const yPos = 50 + offset * 0.03;
+  parallax.style.backgroundPosition = `center ${yPos}%`;
+
+  if (offset > 100) header.classList.add('scrolled');
+  else header.classList.remove('scrolled');
+});
+
+menuToggle.addEventListener('click', () => {
+  navList.classList.toggle('open');
+});
+
+    
     const header = document.querySelector('header');
     const parallax = document.querySelector('.parallax');
     window.addEventListener('scroll', () => {

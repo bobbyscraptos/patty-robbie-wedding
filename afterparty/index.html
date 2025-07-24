@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>After Party RSVP - Patty and Robbie</title>
+  <style>
+    /* Galano Grotesque for headers and subheads */
+    @font-face {
+      font-family: 'GalanoGrotesque';
+      src: url('../fonts/GalanoGrotesqueDEMO-Bold.otf') format('opentype');
+      font-weight: 900;
+      font-style: normal;
+    }
+    /* HK Requisite for body copy */
+    @font-face {
+      font-family: 'HKRequisite';
+      src: url('../fonts/HKRequisite-Medium.otf') format('opentype');
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    a {
+    color: #333333; /* Sets all links to body color */
+    }
+
+    :root {
+      --accent-color: #a67c52;
+      --bg-color: #f5f0e0;
+      --text-color: #333333;
+      --body-font: 'HKRequisite', sans-serif;
+      --title-font: 'GalanoGrotesque', sans-serif;
+      --header-scale: 1.15;
+      --hover-color: olive;
+      --scroll-threshold: 100px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: var(--body-font);
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      text-align: center;
+    }
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: var(--bg-color);
+      padding: 4rem 1rem 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+    header.scrolled {
+      padding: 0.5rem 1rem;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    h1 {
+      font-family: var(--title-font);
+      font-weight: 900;
+      text-transform: uppercase;
+      font-size: 6rem;
+      line-height: 0.9;
+      margin: 0 0 0.5rem;
+      display: inline-block;
+      transform: scaleX(var(--header-scale));
+      transform-origin: center;
+      transition: all 0.3s ease;
+    }
+    /* Remove breaks when scrolled */
+    header.scrolled h1 {
+      font-size: 2rem;
+      transform: scaleX(1);
+      white-space: nowrap;
+      margin: 0;
+    }
+    header.scrolled h1 br { display: none; }
+    .subheading {
+      font-family: var(--title-font);
+      color: var(--accent-color);
+      font-size: 1.125rem;
+      margin: 0 0 1rem;
+      display: block;
+      transition: opacity 0.3s;
+    }
+    header.scrolled .subheading { display: none; }
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background: var(--accent-color);
+      color: #ffffff;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      font-family: var(--title-font);
+      font-weight: 900;
+      margin-top: 0.5rem;
+      font-size: 1.125rem;
+      transition: background 0.3s;
+    }
+    .btn:hover {
+      background: var(--hover-color);
+      color: #ffffff;
+    }
+    .section-title {
+      font-family: var(--title-font);
+      font-size: 2rem;
+      color: var(--accent-color);
+      margin-bottom: 1rem;
+    }
+    section, footer { padding-top: 2rem; }
+    #our-story { display: none; }
+    @media (max-width: 600px) {
+      h1 { font-size: 2.5rem; transform: scaleX(1); }
+      /* Keep mobile smaller but still enough viewport */
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>After Party RSVP</h1>
+    <p class="subheading">Let us know if you're coming!</p>
+  </header>
+
+  <section id="rsvp">
+    <h2 class="section-title">RSVP to the After Party</h2>
+    <form action="mailto:example@example.com" method="post" enctype="text/plain">
+      <p>
+        <label for="name">Name</label><br>
+        <input type="text" id="name" name="name" required>
+      </p>
+      <p>
+        <label for="email">Email</label><br>
+        <input type="email" id="email" name="email" required>
+      </p>
+      <p>
+        <label for="attending">Will you attend?</label><br>
+        <select id="attending" name="attending" required>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+      </p>
+      <p>
+        <label for="notes">Notes</label><br>
+        <textarea id="notes" name="notes" rows="4" cols="40"></textarea>
+      </p>
+      <button type="submit" class="btn">Send RSVP</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Patty &amp; Robbie</p>
+  </footer>
+
+  <script>
+    const header = document.querySelector('header');
+    window.addEventListener('scroll', () => {
+      const offset = window.pageYOffset;
+      if (offset > 100) header.classList.add('scrolled');
+      else header.classList.remove('scrolled');
+    });
+  </script>
+</body>
+</html>

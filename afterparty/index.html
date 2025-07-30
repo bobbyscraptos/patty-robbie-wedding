@@ -110,6 +110,22 @@
       background: var(--hover-color);
       color: #ffffff;
     }
+    input[type="text"],
+    input[type="email"],
+    select,
+    textarea {
+      font-family: var(--body-font);
+      font-size: 1rem;
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      max-width: 300px;
+      width: 100%;
+    }
+    select {
+      background-color: #fff;
+      color: var(--text-color);
+    }
     .section-title {
       font-family: var(--title-font);
       font-size: 2rem;
@@ -132,7 +148,7 @@
 
   <section id="rsvp">
     <h2 class="section-title">RSVP to the After Party</h2>
-    <form action="mailto:example@example.com" method="post" enctype="text/plain">
+    <form action="https://formspree.io/f/mnnzvevz" method="POST">
       <p>
         <label for="name">Name</label><br>
         <input type="text" id="name" name="name" required>

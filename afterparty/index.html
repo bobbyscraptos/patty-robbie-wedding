@@ -38,7 +38,7 @@
     *, *::before, *::after { box-sizing: border-box; }
     body {
       margin: 0;
-      padding: 13rem 2rem 4rem; /* keep content below the fixed header and above the footer */
+      padding: 13rem 2rem 4rem; /* keep content below the fixed header */
       font-family: var(--body-font);
       background-color: var(--bg-color);
       color: var(--text-color);
@@ -155,12 +155,12 @@
       color: var(--accent-color);
       margin-bottom: 1rem;
     }
+    .intro {
+      max-width: 500px;
+      margin: 0 auto 1.5rem;
+    }
     section, footer { padding-top: 2rem; }
     footer {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
       background: var(--bg-color);
       padding: 1rem 0;
     }
@@ -180,6 +180,7 @@
   </header>
 
   <section id="rsvp">
+    <p class="intro">We're keeping the ceremony and lunch small, but the party? That’s where we get to celebrate with all the people we love. We’d love for you to join us at <a href="https://maps.app.goo.gl/jPxvrebojJQgbA1QA" target="_blank">Bar Snack</a> at 6 p.m.</p>
     <form action="https://formspree.io/f/mnnzvevz" method="POST">
       <p>
         <label for="name">Name</label><br>

@@ -38,7 +38,7 @@
     *, *::before, *::after { box-sizing: border-box; }
     body {
       margin: 0;
-      padding: 0;
+      padding: 8rem 0 0; /* ensure content starts below the fixed header */
       font-family: var(--body-font);
       background-color: var(--bg-color);
       color: var(--text-color);
@@ -121,11 +121,16 @@
       border-radius: 4px;
       max-width: 300px;
       width: 100%;
+      display: block;
+      margin: 0 auto;
     }
     select {
       background-color: #fff;
       color: var(--text-color);
+      text-align: center;
+      text-align-last: center;
     }
+    form p { text-align: center; }
     .section-title {
       font-family: var(--title-font);
       font-size: 2rem;

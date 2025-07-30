@@ -70,6 +70,7 @@
       font-size: 6rem;
       line-height: 0.9;
       margin: 0 0 0.5rem;
+      padding: 0 1rem; /* prevent text from touching edges */
       display: inline-block;
       transform: scaleX(var(--header-scale));
       transform-origin: center;
@@ -116,19 +117,21 @@
     textarea {
       font-family: var(--body-font);
       font-size: 1rem;
-      padding: 0.5rem;
-      border: 1px solid #ccc;
-      border-radius: 4px;
+      padding: 0.5rem 0.25rem;
+      background: transparent;
+      border: none;
+      border-bottom: 4px solid #000;
+      border-radius: 0;
       max-width: 300px;
       width: 100%;
       display: block;
       margin: 0 auto;
     }
     select {
-      background-color: #fff;
       color: var(--text-color);
       text-align: center;
       text-align-last: center;
+      background: transparent;
     }
     form p { text-align: center; }
     .section-title {
@@ -147,6 +150,7 @@
       padding: 1rem 0;
     }
     body { cursor: none; }
+    .mobile-break { display: none; }
     #custom-cursor {
       position: fixed;
       top: 0;
@@ -155,14 +159,14 @@
       height: 20px;
       border-radius: 50%;
       background: var(--hover-color);
-      mix-blend-mode: difference;
       pointer-events: none;
       transform: translate(-50%, -50%);
       z-index: 10000;
     }
     #our-story { display: none; }
     @media (max-width: 600px) {
-      h1 { font-size: 2.5rem; transform: scaleX(1); }
+      h1 { font-size: 3.5rem; transform: scaleX(1); }
+      .mobile-break { display: inline; }
       /* Keep mobile smaller but still enough viewport */
     }
   </style>
@@ -170,7 +174,7 @@
 <body>
   <div id="custom-cursor"></div>
   <header>
-    <h1>After Party RSVP</h1>
+    <h1>After<br class="mobile-break">Party<br class="mobile-break">RSVP</h1>
     <p class="subheading">Let us know if you're coming!</p>
   </header>
 

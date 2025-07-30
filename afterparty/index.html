@@ -38,7 +38,7 @@
     *, *::before, *::after { box-sizing: border-box; }
     body {
       margin: 0;
-      padding: 13rem 0 0; /* ensure content starts below the fixed header */
+      padding: 13rem 2rem 4rem; /* keep content below the fixed header and above the footer */
       font-family: var(--body-font);
       background-color: var(--bg-color);
       color: var(--text-color);
@@ -51,7 +51,7 @@
       left: 0;
       right: 0;
       background: var(--bg-color);
-      padding: 4rem 1rem 1rem;
+      padding: 4rem 2rem 1rem;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -59,7 +59,7 @@
       z-index: 1000;
     }
     header.scrolled {
-      padding: 0.5rem 1rem;
+      padding: 0.5rem 2rem;
       flex-direction: row;
       justify-content: space-between;
     }
@@ -138,6 +138,28 @@
       margin-bottom: 1rem;
     }
     section, footer { padding-top: 2rem; }
+    footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--bg-color);
+      padding: 1rem 0;
+    }
+    body { cursor: none; }
+    #custom-cursor {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--hover-color);
+      mix-blend-mode: difference;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      z-index: 10000;
+    }
     #our-story { display: none; }
     @media (max-width: 600px) {
       h1 { font-size: 2.5rem; transform: scaleX(1); }
@@ -146,13 +168,13 @@
   </style>
 </head>
 <body>
+  <div id="custom-cursor"></div>
   <header>
     <h1>After Party RSVP</h1>
     <p class="subheading">Let us know if you're coming!</p>
   </header>
 
   <section id="rsvp">
-    <h2 class="section-title">RSVP to the After Party</h2>
     <form action="https://formspree.io/f/mnnzvevz" method="POST">
       <p>
         <label for="name">Name</label><br>
@@ -187,6 +209,11 @@
       const offset = window.pageYOffset;
       if (offset > 100) header.classList.add('scrolled');
       else header.classList.remove('scrolled');
+    });
+    const cursor = document.getElementById('custom-cursor');
+    window.addEventListener('mousemove', (e) => {
+      cursor.style.left = `${e.clientX}px`;
+      cursor.style.top = `${e.clientY}px`;
     });
   </script>
 </body>

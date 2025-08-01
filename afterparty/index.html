@@ -38,7 +38,7 @@
     *, *::before, *::after { box-sizing: border-box; }
     body {
       margin: 0;
-      padding: 16rem 2rem 4rem; /* keep content below the fixed header */
+      padding: 4rem 2rem 1rem; /* breathing room around the header */
       font-family: var(--body-font);
       background-color: var(--bg-color);
       color: var(--text-color);
@@ -46,17 +46,11 @@
       text-align: center;
     }
     header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
       background: var(--bg-color);
       padding: 4rem 2rem 1rem;
       display: flex;
       flex-direction: column;
       align-items: center;
-      transition: all 0.3s ease;
-      z-index: 1000;
     }
     h1 {
       font-family: var(--title-font);
@@ -166,7 +160,7 @@
   </header>
 
   <section id="rsvp">
-    <p class="intro"><strong>We're keeping the ceremony and lunch small, but the party? That’s where we get to celebrate with all the people we love. We’d love for you to join us at <a href="https://maps.app.goo.gl/jPxvrebojJQgbA1QA" target="_blank">Bar Snack</a> at 6 p.m.</strong></p>
+    <p class="intro"><strong>We're keeping the ceremony and lunch small, but the party? <br>That’s where we get to celebrate with all the people we love. <br>We’d love for you to join us at <a href="https://maps.app.goo.gl/jPxvrebojJQgbA1QA" target="_blank">Bar Snack</a> at 6 p.m.</strong></p>
     <form action="https://formspree.io/f/mnnzvevz" method="POST">
       <p>
         <label for="name">Name</label><br>

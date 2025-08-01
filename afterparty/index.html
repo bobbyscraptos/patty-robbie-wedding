@@ -54,7 +54,7 @@
     }
     h1 {
       font-family: var(--title-font);
-      font-weight: 900;
+      font-weight: 00;
       text-transform: uppercase;
       font-size: 6rem;
       line-height: 0.9;
@@ -63,7 +63,7 @@
       display: inline-block;
       transform: scaleX(var(--header-scale));
       transform-origin: center;
-      transition: all 0.3s ease;
+      transition: all 1s ease;
     }
     .subheading {
       font-family: var(--title-font);
@@ -79,7 +79,7 @@
       background: var(--accent-color);
       color: #ffffff;
       border: none;
-      border-radius: 5px;
+      border-radius: 30px;
       text-decoration: none;
       font-family: var(--title-font);
       font-weight: 900;
@@ -136,7 +136,7 @@
       margin-bottom: 1rem;
     }
     .intro {
-      max-width: 25rem;
+      max-width: 30rem;
       margin: 0 auto 1.5rem;
     }
     section, footer { padding-top: 2rem; }
@@ -162,13 +162,13 @@
   <section id="rsvp">
     <p class="intro"><strong>We're keeping the ceremony and lunch small, but the party? That’s where we get to celebrate with all the people we love. We’d love for you to join us at <a href="https://maps.app.goo.gl/jPxvrebojJQgbA1QA" target="_blank">Bar Snack</a> at 6 p.m.</strong></p>
     <form action="https://formspree.io/f/mnnzvevz" method="POST">
-      <p>
+      <p><br>
         <label for="name">Name</label><br>
-        <input type="text" id="name" name="name" required>
+        <input type="text" id="name" name="name" required><br>
       </p>
       <p>
         <label for="email">Email</label><br>
-        <input type="email" id="email" name="email" required>
+        <input type="email" id="email" name="email" required><br>
       </p>
       <p>
         <label for="attending">Will you attend?</label><br>
@@ -177,16 +177,19 @@
           <option value="No">No</option>
         </select>
       </p>
-      <p>
+      <p><br>
         <label for="notes">Notes</label><br>
         <textarea id="notes" name="notes" rows="4" cols="40"></textarea>
       </p>
+<br>
+<br>
+<br>
       <button type="submit" class="btn">Send RSVP</button>
     </form>
   </section>
-
+      <br>
   <footer>
-    <p>&copy; 2025 Patty &amp; Robbie</p>
+       <br>
   </footer>
 
   
